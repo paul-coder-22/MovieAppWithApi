@@ -14,26 +14,6 @@ function getMovies(url) {
         .then(response => response.json()).then(data => showMovie(data.results))
 
 }
-/* {
-    "adult": false,
-    "backdrop_path": "/fPGeS6jgdLovQAKunNHX8l0avCy.jpg",
-    "genre_ids": [
-        28,
-        53,
-        10752
-    ],
-    "id": 567189,
-    "original_language": "en",
-    "original_title": "Tom Clancy's Without Remorse",
-    "overview": "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
-    "popularity": 1278.908,
-    "poster_path": "/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
-    "release_date": "2021-04-29",
-    "title": "Tom Clancy's Without Remorse",
-    "video": false,
-    "vote_average": 7.2,
-    "vote_count": 1094
-} */
 function showMovie(data) {
 
     //creating skeleton

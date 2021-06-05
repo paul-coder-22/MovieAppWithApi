@@ -47,7 +47,7 @@ function showMovie(data) {
         <img class="center-fit"  src= ${Image_url + poster_path} alt= ${title}>
 
             <div class="movie-info">
-                <h3>Movie Title</h3>
+                <h3>${title}</h3>
                 <span class= ${getMovieRating(vote_average)}>${vote_average}</span>
             </div>
 

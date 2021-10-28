@@ -2,7 +2,7 @@ const Api_key = "api_key=08b34205c4bbd69c10c817cc3048441c";
 const base_url = "https://api.themoviedb.org/3"
 const Api_url = base_url + '/discover/movie?sort_by=popularity.desc&' + Api_key;
 const Image_url = 'https://image.tmdb.org/t/p/w500/';
-const searchUrl = base_url + '/search/movie?'+Api_key;
+const searchUrl = base_url + '/search/movie?' + Api_key;
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
@@ -11,9 +11,10 @@ getMovies(Api_url);
 
 function getMovies(url) {
     fetch(url)
-        .then(response => response.json()).then(data => showMovie(data.results))
+        .then(response => response.json()).then(data => { showMovie(data.results) })
 
 }
+
 function showMovie(data) {
 
     //creating skeleton
@@ -40,22 +41,14 @@ function showMovie(data) {
         main.appendChild(movieEl);
     });
 }
-function getMovieRating(rating) {
-    if (rating >= 8) {
-        return 'green';
-    } else if (rating >= 5) {
-        return 'orange';
-    } else {
-        return 'red';
-    }
-}
+getMovieRating = (rating) => rating >= 8 ? 'green' : rating >= 5 ? 'orange' : 'red';
 
-form.addEventListener('submit',(ele)=>{
+form.addEventListener('submit', (ele) => {
     ele.preventDefault();
     const searchTerm = search.value;
-    if(searchTerm){
+    if (searchTerm) {
         getMovies(searchUrl + '&query=' + searchTerm)
-    }else{
+    } else {
         getMovies(Api_url);
     }
 })
